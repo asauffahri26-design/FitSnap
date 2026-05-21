@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitSnap - Dashboard User</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#beranda"> FitSnap </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-white" href="#beranda">Beranda</a>
+                    <a class="nav-link text-white fw-bold" href="#cekbmi">Cek BMI</a>
+                    <a class="nav-link text-white" href="riwayat.html">Riwayat Kesehatan</a>
+                    <a class="nav-link text-white" href="#kontak">Kontak</a>
+                    <a class="nav-link text-white" href="index.html" onclick="logout()">Log out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="d-flex align-items-center" style="min-height: 50vh;">
+        <div class="container text-center">
+            <h1 class="mb-2" id="Welcome" > </h1>
+            <p>Selamat datang di FitSnap, platform kesehatan digital yang membantu Anda memantau kondisi tubuh dengan mudah, cepat, dan akurat melalui perhitungan BMI (Body Mass Index). Kami percaya bahwa hidup sehat dimulai dari langkah kecil. Dengan FitSnap, Anda dapat mengetahui apakah berat badan Anda sudah ideal berdasarkan tinggi badan, sekaligus mendapatkan wawasan kesehatan yang lebih baik untuk mendukung gaya hidup sehat setiap hari.</p>
+        </div>
+    </section>
+
+    <section id="cekbmi" class="py-5" style="min-height: 50vh; background-color: #0059ff;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-md-start text-center text-white">
+                    <h3 class="mb-3 text-white"><b>BMI Kalkulator</b></h3>
+                    <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung sekarang di BMI Kalkulator!</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm p-4">
+                        <form id="bmiForm">
+                            <div class="mb-3 text-start">
+                                <label class="form-label">Berat Badan (kg)</label>
+                                <input type="number" min="0" id="weight" class="form-control" placeholder="Contoh: 60" required>
+                            </div>
+                            <div class="mb-3 text-start">
+                                <label class="form-label">Tinggi Badan (cm)</label>
+                                <input type="number" min="0" id="height" class="form-control" placeholder="Contoh: 170" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Hitung BMI</button>
+                        </form>
+                        
+                        <div id="result" class="mt-4 text-center d-none">
+                            <div class="alert alert-info border-0 shadow-sm">
+                                <h5 class="mb-1">Hasil Perhitungan Anda:</h5>
+                                <h3 class="fw-bold text-primary" id="bmiValue">0.0</h3>
+                                <p class="mb-2 fw-semibold" id="bmiStatus">Status</p>
+                                <a href="riwayat.html" class="btn btn-sm btn-outline-primary mt-1">Lihat di Tabel Riwayat →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="layanan" class="bg-white">
+        <div class="container text-center">
+            <h1 class="mb-5 pt-5 text-primary"><b>Kategori BMI</b></h1>
+            <div class="row g-4">
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm" >
+                        <img src="kesehatan/kurus.png" class="card-img-top" alt="Kurus">
+                        <div class="card-body"><p class="fw-bold">Kekurangan Berat Badan</p></div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="kesehatan/normal.png" class="card-img-top" alt="Normal">
+                        <div class="card-body"><p class="fw-bold">Berat Badan Normal</p></div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="kesehatan/overwight.png" class="card-img-top" alt="Overweight">
+                        <div class="card-body"><p class="fw-bold">Kelebihan Berat Badan</p></div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="kesehatan/obesitas.png" class="card-img-top" alt="Obesitas">
+                        <div class="card-body"><p class="fw-bold">Obesitas</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7 mb-6 mb-md-0">
+                    <div class="info-area">
+                        <h2 class="mb-5 pt-5"><b>Kontak Kami</h2>
+                        <p><strong>Lokasi:</strong><br> Jl. Raya Penggilangan, Kp. Pedaengan No. 99, Cakung - Jakarta Timur</p>
+                        <p><strong>Email:</strong><br> info@taxtechcenter.sch.id</p>
+                        <p><strong>Telepon:</strong><br> 021-4616390</p>
+                        <p><strong>WhatsApp:</strong><br> 082123124670</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="map-area shadow-sm">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4880.710914814164!2d106.93475497586775!3d-6.1914308606610255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b69927a4509%3A0x12f6165c1156d75c!2sDevelopment%20Dynamics%20Smk%202%20Building%20C!5e1!3m2!1sen!2sid!4v1749370001420!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-3 text-center">
+        <p class="mb-0">&copy; 2026 TAX & TECH Center</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/user.js"> </script>
+    <script src="js/logout.js"> </script>
+
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightCm = parseFloat(document.getElementById('height').value);
+            const heightM = heightCm / 100;
+
+            if (weight > 0 && heightM > 0) {
+                const bmi = (weight / (heightM * heightM)).toFixed(1);
+                let status = '';
+
+                if (bmi < 18.5) {
+                    status = 'Kekurangan Berat Badan (Kurus)';
+                } else if (bmi >= 18.5 && bmi <= 25.0) {
+                    status = 'Berat Badan Normal (Ideal)';
+                } else if (bmi >= 25.1 && bmi <= 27.0) {
+                    status = 'Kelebihan Berat Badan (Gemuk)';
+                } else {
+                    status = 'Obesitas';
+                }
+
+                document.getElementById('bmiValue').textContent = bmi;
+                document.getElementById('bmiStatus').textContent = status;
+                document.getElementById('result').classList.remove('d-none');
+
+                const waktuSekarang = new Date();
+                const opsiWaktu = { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+                const tanggalFormat = waktuSekarang.toLocaleDateString('id-ID', opsiWaktu);
+
+                const dataBaru = {
+                    date: tanggalFormat,
+                    weight: weight,
+                    height: heightCm,
+                    bmi: bmi,
+                    status: status
+                };
+
+                let riwayatBmi = JSON.parse(localStorage.getItem('riwayatBmiData')) || [];
+                riwayatBmi.unshift(dataBaru);
+                localStorage.setItem('riwayatBmiData', JSON.stringify(riwayatBmi));
+                
+
+                document.getElementById('bmiForm').reset();
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>
